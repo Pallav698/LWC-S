@@ -1,0 +1,12 @@
+<template>
+    <div>
+        <p>
+            First Name:
+            <slot name="firstName" onslotchange={handleSlotChange}>Default First Name</slot>
+        </p>
+        <p>
+            Last Name:
+            <slot name="lastName" onslotchange={handleSlotChange}>Default Last Name</slot>
+        </p>
+    </div>
+</template>
