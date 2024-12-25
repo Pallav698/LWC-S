@@ -3,7 +3,7 @@ import getContactsAndAccount from '@salesforce/apex/ContactsHandler.getContactsA
 
 export default class DynamicSeacrh extends LightningElement {
     handleSearch(event){
-        const searchTerm = event.target.value;
+        const searchTerm = event.target.value.trim();
 
         if(searchTerm !== ''){
             this.fetchContact(searchTerm);

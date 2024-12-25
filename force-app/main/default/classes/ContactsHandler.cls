@@ -13,4 +13,24 @@ public with sharing class ContactsHandler {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @auraEnabled(cacheable=true)
+    public static List<Contact> getContacts(){
+        System.debug('I amd getting called');
+        return [
+            SELECT Id, FirstName, Name, Email, Phone, Account.Name
+            FROM Contact WHERE AccountId != NULL
+            LIMIT 5
+        ];
+    }
+
+    @AuraEnabled
+    public static void updateContact(List<Contact> contacts){
+        try {
+            update contacts;
+            System.debug('receiving contact ' + contacts);
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }
