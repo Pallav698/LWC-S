@@ -1,8 +1,13 @@
 <template>
-    <lightning-card title="Dynamic Search Component">
+    <lightning-card title="Dynamic Search Component With Debouncing">
         <lightning-input type="text" label="Enter Contact Name" onchange={handleSearch} class="slds-m-around_medium"></lightning-input>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading..." size="small"></lightning-spinner>
+        </template>
         
         <template if:true={contacts}>
+            <template if:true={contacts.length}>
+                
             <ul class="slds-m-around_medium">
                 <template for:each={contacts} for:item="contact">
                     <li key={contact.Id} class="slds-m-around_medium">
@@ -11,6 +16,10 @@
                     </li>
                 </template>
             </ul>
+            </template>
+            <template if:false={contacts.length}>
+                <p>No results found</p>
+            </template>
             
         </template>
     </lightning-card>
