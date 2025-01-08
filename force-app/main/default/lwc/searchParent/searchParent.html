@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent Compentent">
+        <lightning-input
+            type="text"
+            placeholder="type in parent" 
+            value={searchKey}>
+        </lightning-input>
+        <c-child-search-component onsearch={handleSearch}></c-child-search-component>
+    </lightning-card>
+</template>
