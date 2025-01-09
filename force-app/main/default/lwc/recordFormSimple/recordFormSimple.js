@@ -5,6 +5,7 @@ import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
 import ACCOUNT_ID_FIELD from '@salesforce/schema/Contact.AccountId';
 import CONTACT_OBJECT from '@salesforce/schema/Contact';
 import { getRecord } from 'lightning/uiRecordApi';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 
 export default class RecordFormSimple extends LightningElement {
@@ -15,4 +16,12 @@ export default class RecordFormSimple extends LightningElement {
 
     // @wire(getRecord, {recordId: '$recordId', fields: fields})
     // contact;
+
+    handleSubmit(event) {
+        this.dispatchEvent(new ShowToastEvent({
+            title: "title",
+            message: "message",
+            variant: "success"
+        }));
+    }
 }
