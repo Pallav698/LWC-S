@@ -4,6 +4,7 @@ import messageChannelName from '@salesforce/messageChannel/SampleMessageChannel_
 
 export default class SubscriberComponent extends LightningElement {
     receivedMessage = '';
+    receivedValue = '';
 
     subscription = null;
 
@@ -24,7 +25,9 @@ export default class SubscriberComponent extends LightningElement {
 
     handleMessage(message) {
         this.receivedMessage = message.data ? message.data + ' - this is the message received in susbcriber component' : 'No message received';
+        this.receivedValue =  message.value;
     }
 
+    
     
 }

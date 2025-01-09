@@ -6,4 +6,5 @@
     <lightningMessageFields>
         <fieldName>data</fieldName>
     </lightningMessageFields>
+    
 </LightningMessageChannel>

@@ -7,7 +7,7 @@ export default class PublisherComp extends LightningElement {
     messageContext;
 
     handleClick() {
-        const message = {data: 'I \'m\ the publisher!'};
+        const message = {data: 'I \'m\ the publisher!', value: 10};
 
         publish(this.messageContext, messageChannelName, message);
     }
