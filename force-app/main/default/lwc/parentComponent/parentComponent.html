@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Parent To Child Communication">
+        <div class="slds-m-around_medium">
+            <p>Hello from Parent Component</p>
+            <c-child-component onclickchild={handleClickChild}></c-child-component>
+            <p>{message}</p>
+            <p>{value}</p>
+        </div>
+        
+    </lightning-card>
+</template>
