@@ -1,0 +1,20 @@
+<template>
+    <lightning-card
+        title="Deboucning">
+        <div class="slds-m-around_medium">
+            <lightning-input
+                label="Search"
+                onchange={handleSearchChange}>
+            </lightning-input>
+            <div class="slds-m-top_medium">
+                <template if:true={searchResultsShow}>
+                    <template for:each={filteredResults} for:item="result">
+                        <div class="slds-m-top_small" key={result.id}>
+                            {result.title}
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
