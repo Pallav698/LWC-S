@@ -8,14 +8,26 @@
             record-id={recordId}>
             <div class="slds-grid">
                 <lightning-input-field
-                    field-name={name}>
+                    field-name="FirstName">
                 </lightning-input-field>
                 <lightning-input-field
-                    field-name={phone}>
+                    field-name="LastName">
                 </lightning-input-field>
                 <lightning-input-field
-                    field-name={email}>
+                    field-name="Phone">
                 </lightning-input-field>
+                <lightning-input-field
+                    field-name="Phone">
+                </lightning-input-field>
+            </div>
+            <div class="slds-m-top_medium slds-grid slds-grid_vertical-align-center slds-grid_align-center">
+                <lightning-button
+                    class="slds-m-top_small"
+                    variant="brand"
+                    type="submit"
+                    name="update"
+                    label="Update">
+                </lightning-button>
             </div>
         </lightning-record-edit-form>
         </div>

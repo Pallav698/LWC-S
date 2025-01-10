@@ -1,7 +1,7 @@
 import { api, LightningElement, wire } from 'lwc';
 import CONTACT_OBJECT from '@salesforce/schema/Contact';
-import { getRecord } from 'lightning/uiRecordApi';
-const FIELDS = ['Name', 'Phone', 'Email'];
+import { getRecord } from "lightning/uiRecordApi";
+//const FIELDS = ["Contact.Name", "Contact.Phone", "Contact.Email"];
 
 
 export default class LightningEditFormSimple extends LightningElement {
@@ -9,20 +9,21 @@ export default class LightningEditFormSimple extends LightningElement {
     objectApiName = CONTACT_OBJECT;
     
 
-    @wire(getRecord, { recordId: '$recordId', fields: FIELDS })
-    contact;
+    // @wire(getRecord, { recordId: "$recordId", fields: FIELDS })
+    // contact;
 
-    get name() {
-        return this.contact?.data?.fields?.Name?.value;
-    }
 
-    // Getter for Phone field
-    get phone() {
-        return this.contact?.data?.fields?.Phone?.value;
-    }
+    // get name() {
+    //     return this.contact?.data?.fields?.Name?.value;
+    // }
 
-    // Getter for Email field
-    get email() {
-        return this.contact?.data?.fields?.Email?.value;
-    }
+    // // Getter for Phone field
+    // get phone() {
+    //     return this.contact?.data?.fields?.Phone?.value;
+    // }
+
+    // // Getter for Email field
+    // get email() {
+    //     return this.contact?.data?.fields?.Email?.value;
+    // }
 }
