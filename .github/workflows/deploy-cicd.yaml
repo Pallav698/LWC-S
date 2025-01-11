@@ -36,5 +36,5 @@ jobs:
           - name: 'Deploy to environment with running all local tests'
             run: |
                 echo "${{ secrets.JWT_SERVER_KEY }}" > server.key
-                sf org login jwt --username ${{ secrets.USERNAME }} --jwt-key-file server.key --client-id ${{ secrets.CONSUMER_KEY }} --instance-url https://trailhead-3d0-dev-ed.develop.lightning.force.com --set-default
+                sf org login jwt --username ${{ secrets.USERNAME }} --jwt-key-file server.key --client-id ${{ secrets.CONSUMER_KEY }} --instance-url https://login.salesforce.com --set-default
                 sf project deploy start --source-dir changed-sources/force-app --test-level RunLocalTests
