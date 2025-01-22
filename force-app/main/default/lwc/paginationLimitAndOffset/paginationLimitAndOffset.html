@@ -1,0 +1,26 @@
+<template>
+    <lightning-card icon-name="standard:contact" title="Pagination">
+        <div class="slds-m-around_medium">
+            <template if:false={loader}>
+                <lightning-spinner
+                    alternative-text="Loading"
+                    size="medium"
+                    variant="brand"
+                ></lightning-spinner>
+            </template>
+            <template if:true={loader}>
+                <template for:each={contacts} for:item="contact">
+                    <div key={contact.Id} class="box">
+                        <p class="name">{contact.Name}</p>
+                        <p class="phone">{contact.Phone}</p>
+                    </div>
+                </template>
+            </template>
+            <div class="slds-m-top_medium btn">
+                <lightning-button label="Next" onclick={handleNext} disabled={nextDisabled} class="next-btn"></lightning-button>
+                <lightning-button label="Previous" onclick={handlePrevious} disabled={previousDisabled} class="prev-btn"></lightning-button>
+            </div>
+        </div>
+
+    </lightning-card>
+</template>
