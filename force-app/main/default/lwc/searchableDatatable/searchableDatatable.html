@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Searchable Datatable">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" label="Search" onchange={handleSearchTermChange}></lightning-input>
+        </div>
+        <div class="slds-m-around_medium">
+            <lightning-datatable
+                key-field="Id"
+                data={records}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
