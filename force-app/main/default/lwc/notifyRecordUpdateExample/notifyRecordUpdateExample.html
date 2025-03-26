@@ -1,0 +1,6 @@
+<template>
+    <template if:true={account}>
+        <p>{account.fields.Name.value} - {account.fields.Phone.value}</p>
+        <lightning-button label="Update Phone" onclick={handleUpdate}></lightning-button>
+    </template>
+</template>

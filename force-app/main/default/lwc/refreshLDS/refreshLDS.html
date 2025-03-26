@@ -1,0 +1,21 @@
+<template>
+    <p><strong>Original Email:</strong> {originalEmail}</p>
+    <p><strong>Updated Email:</strong> {email}</p>
+
+    <lightning-input 
+        label="Modify Email" 
+        value={email} 
+        onchange={handleEmailChange}>
+    </lightning-input>
+
+    <lightning-button 
+        label="Refresh" 
+        onclick={handleRefresh} 
+        disabled={isUpdating}>
+    </lightning-button>
+
+    <template if:true={successMessage}>
+        <p style="color: green;">{successMessage}</p>
+    </template>
+<template lwc:if=""
+</template>

@@ -1,0 +1,31 @@
+<template>
+    <table>
+        <thead>
+            <tr class="slds-border_bottom slds-border_top slds-border_left slds-border_right" style="background-color: #B2BEB5;">
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={tasks} for:item="task">
+                <tr key={task.Id}>
+                    <td>{task.Subject}</td>
+                    <td>
+                        <lightning-combobox key ={task.Id} 
+                            label="Status" value={task.Status} 
+                            options={statusPicklistValues} onchange={handleChange} 
+                            data-id={task.Id}>
+                        </lightning-combobox>
+                    </td>
+                    
+                    <!-- <td>{task.Status}</td> -->
+                    <td>{task.Priority}</td>
+                    <td>{task.ActivityDate}</td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>

@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Accounts and their Related Accounts">
+        <div class="slds-m-around_medium">
+            <lightning-combobox title="Select Account" name="selectAccountId" value={selectedAccountId} options={accountOptions} onchange={handleAccountChange} >
+            </lightning-combobox>
+            <template if:true={selectedAccountId}>
+                <c-contact-datatable account-id={selectedAccountId}></c-contact-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>

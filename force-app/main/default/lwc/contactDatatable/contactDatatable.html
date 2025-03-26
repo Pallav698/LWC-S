@@ -1,0 +1,19 @@
+<template>
+    <template if:true={isLoaded}>
+        <template if:true={noContactsFlag}>
+            <h3 class="slds-text-align_center">No Contacts Found</h3>
+        </template>
+    
+    <lightning-datatable
+        key-field="Id"
+        data={contacts}
+        columns={columns}
+        hide-checkbox-column
+        draft-values={draftValues}
+        onsave={handleSave}>
+    </lightning-datatable>
+</template>
+<template if:false={isLoaded}>
+    <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+</template>
+</template>

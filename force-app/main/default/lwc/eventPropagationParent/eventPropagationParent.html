@@ -1,0 +1,10 @@
+<template>
+    <h3>I'm a parent component</h3>
+    <div 
+      class='wrapper' 
+      onbuttonclick={handleButtonClick}>
+      <c-event-propagation-child
+        onbuttonclick={handleButtonClick}>
+    </c-event-propagation-child>
+    </div>
+  </template>

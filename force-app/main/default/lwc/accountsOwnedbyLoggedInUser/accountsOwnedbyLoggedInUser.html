@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="My Accounts" icon-name="standard:account">
+        <template if:true={loader}>
+            <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+        </template>
+        <template if:false={loader}>
+        <div class="slds-m-around_medium">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Type</th>
+                        <th>Billing State</th>
+                        <th>Total Opportunities</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template if:true={accounts.length}>
+                        <template for:each={accounts} for:item="account">
+                            <tr key={account.accountId}>
+                                <td><a href={account.recordPageLink} target="_blank">{account.Name}</a></td>
+                                <td>{account.type}</td>
+                                <td>{account.billingState}</td>
+                                <td>{account.oppCount}</td>
+                                <td>
+                                    <lightning-button variant="brand" label="Create Contact" onclick={handleCreateContact} data-id={account.accountId}>
+                                    </lightning-button>
+                                    <lightning-button variant="destructive" label="Delete" onclick={handleDeleteAccount} data-id={account.accountId}></lightning-button>
+                                </td>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:false={accounts.length}>
+                        <tr>
+                            <td colspan="5">No records found</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        </template>
+    </lightning-card>
+
+    <template if:true={showModal}>
+        <c-create-contact-modal account-id={selectedAccountId} show-modal={showModal} style={modalStyle}  onclosemodal={handleCloseModal}></c-create-contact-modal>
+    </template>
+</template>

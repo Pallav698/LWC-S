@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Event bubbling in LWC" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <c-child-component-bubbling></c-child-component-bubbling>
+            <template if:true={message}>
+                <p>{message}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

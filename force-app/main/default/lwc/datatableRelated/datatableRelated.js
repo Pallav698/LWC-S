@@ -42,42 +42,43 @@ export default class DatatableRelated extends LightningElement {
         this.updatedValues = event.detail.draftValues;
         console.log('this.updatedValues ',this.updatedValues);
 
-        this.updateUsingApex();
+        //this.updateUsingApex();
 
-        // const updatePromises = this.updatedValues.map(record => {
-        //     const fields = {...record};
-        //     console.log('fields', fields);
-        //     return updateRecord( {fields} );
-        // })
+        const updatePromises = this.updatedValues.map(record => {
+            const fields = {...record};
+            console.log('fields', fields);
+            return updateRecord( {fields} );
+        })
 
-        // Promise.all(updatePromises)
-        //     .then(() => {
-        //         this.dispatchEvent(
-        //             new ShowToastEvent({
-        //                 title: 'Success',
-        //                 message: 'Contact updated successfully!',
-        //                 variant: 'success',
-        //             })
-        //         );
-        //         this.draftValues = [];
-        //     // Refresh data to reflect updates
-        //     return refreshApex(this.wiredContactsResult);
-        //     })
-        //     .catch((error) => {
-        //         let errorMessage = 'An error occurred';
-        //         if (error.body && error.body.message) {
-        //             errorMessage = error.body.message;
-        //         }
+        console.log('updatePromises ',updatePromises);
+        Promise.all(updatePromises)
+            .then(() => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Success',
+                        message: 'Contact updated successfully!',
+                        variant: 'success',
+                    })
+                );
+                this.draftValues = [];
+            // Refresh data to reflect updates
+            return refreshApex(this.wiredContactsResult);
+            })
+            .catch((error) => {
+                let errorMessage = 'An error occurred';
+                if (error.body && error.body.message) {
+                    errorMessage = error.body.message;
+                }
 
-        //         console.error('Error updating record:', error.message.body);
-        //         this.dispatchEvent(
-        //             new ShowToastEvent({
-        //                 title: 'Error updating record',
-        //                 message: errorMessage,
-        //                 variant: 'error',
-        //             })
-        //         );
-        //     });
+                console.error('Error updating record:', error.message.body);
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Error updating record',
+                        message: errorMessage,
+                        variant: 'error',
+                    })
+                );
+            });
 
     }
 

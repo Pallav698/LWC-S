@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Contact Manager" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+            <lightning-input label="New Contact Name" onchange={handleNameChange}></lightning-input>
+            <lightning-button label="Add Contact" onclick={createNewContact} class="slds-m-top_small"></lightning-button>
+            
+            <template if:true={contacts}>
+                <ul>
+                    <template for:each={contacts} for:item="contact">
+                        <li key={contact.Id}>{contact.Name}</li>
+                    </template>
+                </ul>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error loading contacts</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
